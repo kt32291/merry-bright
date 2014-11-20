@@ -1,0 +1,17 @@
+<h1><%= @exchange.name %></h1>
+
+<p>You will be getting a gift for</p>
+<p><%= current_user.exchange_giftee(@exchange.id).first_name %> <%= current_user.exchange_giftee(@exchange.id).last_name %></p>
+
+<table>
+  <tr>
+    <td><%= @giftee.first_name %> <%= @giftee.last_name %></td>
+    <td><%= link_to "Send Message", "#", class: "button start-conversation", data: { sid: current_user.id, rid: @giftee.id, eid: @exchange.id } %></td>
+  </tr>
+  <tr>
+    <td>Secret Santa</td>
+    <td><%= link_to "Send Message", "#", class: "button start-conversation", data: { sid: current_user.id, rid: @gifter.id, eid: @exchange.id } %></td>
+  </tr>
+</table>
+
+

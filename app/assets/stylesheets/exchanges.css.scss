@@ -1,0 +1,71 @@
+// Place all the styles related to the exchanges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  margin-top: 0px;
+  background-color: rgb(218, 48, 48);
+  p.alert, p.notice {
+    position: absolute;
+  }
+  .container {
+    width: 960px;
+    margin: 0px auto;
+    padding: 20px;
+    background: white;
+    h1 {
+      margin-top: 0px;
+    }
+  }
+}
+
+li.name {
+  img {
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 25px;
+  }
+}
+
+.exchange-container {
+  padding: 20px 0px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  min-height: 93px;
+  &.new {
+    color: gray;
+    border-color: gray;
+    border-style: dashed;
+  }
+  &:hover {
+    background: #F5F5F5;
+  }
+}
+
+#exchange-form {
+  text-align: left;
+  font-size: 8pt;
+  label {
+    font-size: 8pt !important;
+  }
+  input {
+    padding: 4px !important;
+    height: 25px;
+    font-size: 8pt !important;
+  }
+}
+
+.user-pic {
+  padding-left: 0px !important;
+}
+
+.user-details {
+  margin-bottom: 20px !important;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.hidden-form {
+  display: none;
+}

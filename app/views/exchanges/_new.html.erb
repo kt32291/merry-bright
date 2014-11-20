@@ -1,0 +1,57 @@
+<div class="form_container">
+<h5>Exchange Details</h5>
+
+  <form accept-charset="UTF-8" action method="post" name="exchange_form" id="exchange-form" novalidate ng-submit="addExchange($event)">
+
+<!-- FIRST NAME -->
+  <div class="row">
+    <div class="large-12 columns">
+      <label for="name">Name</label>
+
+      <div ng-messages="exchange_form.name.$error" ng-show="exchange_form.name.$touched">
+        <div ng-message="required">Name is required</div>
+      </div>
+
+      <input id="name" name="name" ng-model="name" ng-model-options="{ debounce: 800 }" type="text" required />
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label for="group_id">Group</label>
+      <input id="shown_group_id" name="shown_group_id" type="text" placeholder="Find a group">
+      <input type="hidden" id="group_id" name="group_id" ng-model="group_id">
+    </div>
+
+    <div class="large-6 columns">
+      <label for="price_limit">Price Limit</label>
+
+      <div ng-messages="exchange_form.price_limit.$error" ng-show="exchange_form.price_limit.$touched">
+        <div ng-message="required">Price Limit is required</div>
+        <div ng-message="number">Must be a number</div>
+      </div>
+
+      <input id="price_limit" name="price_limit" ng-model="price_limit" ng-model-options="{ debounce: 800 }" type="number" required />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label for="exchange_on">Exchange On</label>
+
+      <div ng-messages="exchange_form.exchange_on.$error" ng-show="exchange_form.exchange_on.$touched">
+        <div ng-message="required">Exchange date is required</div>
+        <div ng-message="future">Date must be in the future</div>
+      </div>
+
+      <input id="exchange_on" name="exchange_on" ng-model="exchange_on" ng-model-options="{ debounce: 800 }" type="date" future-date required />
+    </div>
+
+    <div class="large-6 columns">
+      <input name="commit" type="submit" class="button" value="Add Exchange" ng-disabled="exchange_form.$invalid">
+    </div>
+  </div>
+
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<div ng-controller="ExchangesCtrl" ng-init="init('<%= current_user.id %>')">
+
+  <div class="row user-details">
+    <div class="large-3 columns user-pic">
+      <%= image_tag avatar_url(current_user) %>
+    </div>
+    <div class="large-9 columns">
+      <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <p><%= current_user.email %></p>
+    </div>
+  </div>
+
+
+  <ul class="large-block-grid-3">
+    <li class="text-center" ng-repeat="exchange in exchanges">
+      <a ng-href="/exchanges/{{exchange.id}}">
+        <div class="exchange-container">
+          {{ exchange.name }}<br /> {{ exchange.exchange_on }}
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <div class="exchange-container new text-center">
+        <p>+ Add a New Exchange</p>
+        <div class="hidden-form">
+          <%= render partial: 'exchanges/new' %>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+</div>
