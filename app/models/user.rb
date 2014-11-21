@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   has_many :group_exchanges, through: :groups, source: :exchanges
   has_many :conversations, foreign_key: :sender_id
 
+  def pending?
+    !active?
+  end
+
   def gifting_where_gifter_for_exchange(exchange_id)
     Gifting.find_by_exchange_id_and_gifter_id(exchange_id, id)
   end

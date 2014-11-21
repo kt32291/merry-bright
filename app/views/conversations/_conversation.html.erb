@@ -1,0 +1,13 @@
+<h1><%= interlocutor(conversation).first_name %></h1>
+  <div class="chatboxcontent">
+    <% if conversation.messages.any? %>
+        <%= render conversation.messages %>
+    <% end %>
+  </div>
+  <div class="chatboxinput">
+    <%= form_for([conversation, @message], :remote => true, :html => {id: "conversation_form_#{conversation.id}"}) do |f| %>
+        <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => conversation.id %>
+    <% end %>
+  </div>
+
+<%= subscribe_to conversation_path(conversation) %>

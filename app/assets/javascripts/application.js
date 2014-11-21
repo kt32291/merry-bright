@@ -18,6 +18,7 @@
 //= require angular-resource
 //= require angular-messages
 //= require angular-animate
+//= require angular-timer.min
 //= require select.min
 //= require angular-sanitize
 //= require private_pub

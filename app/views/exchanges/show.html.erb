@@ -1,5 +1,9 @@
 <h1><%= @exchange.name %></h1>
 
+<div ng-controller="TimerCtrl">
+  <timer interval="1000" countdown="100">{{countdown}}</timer>
+</div>
+
 <p>You will be getting a gift for</p>
 <p><%= current_user.exchange_giftee(@exchange.id).first_name %> <%= current_user.exchange_giftee(@exchange.id).last_name %></p>
 

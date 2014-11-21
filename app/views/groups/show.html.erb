@@ -1,5 +1,25 @@
-<div ng-controller="GroupsCtrl">
+<div ng-controller="UsersCtrl" ng-init="init('<%= @group.id %>')">
 
-    <%= render partial: 'exchanges/new' %>
+    <form accept-charset="UTF-8" action method="post" name="user_form" id="user-form" novalidate ng-submit="addUser($event)">
+
+      <div class="row">
+        <div class="large-12 columns">
+          <label for="email">Email</label>
+
+          <div ng-messages="user_form.email.$error" ng-show="user_form.email.$touched">
+            <div ng-message="required">Email is required</div>
+          </div>
+
+          <input id="user_email" name="user_email" ng-model="user_email" ng-model-options="{ debounce: 800 }" type="email" required />
+        </div>
+        <input name="commit" type="submit" class="button" value="Add User to Group" ng-disabled="user_form.$invalid">
+      </div>
+
+    </form>
+
+    <h4>Group Members</h4>
+      <ul>
+        <li ng-repeat="user in users">{{ user.email }}</li>
+      </ul>
 
 </div>
